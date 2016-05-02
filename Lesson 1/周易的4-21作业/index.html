@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>还珠格格 第三部 第28集</title>
     <link rel="stylesheet" href="layout.css" media="screen" title="no title" charset="utf-8">
+    <link href="css/master.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.js"></script>
 </head>
 
 <body>
@@ -20,6 +22,305 @@
                 <button id="fire" type="button" name="button">发送</button>
             </div>
         </div>
+        <div class="dan-mu-wrap">
+        <div id="bdshare_s">
+            <div style="display: none;" id="bdshare_l">
+                <div id="bdshare_l_c">
+                    <h6>分享到</h6>
+                    <ul>
+                        <li><a href="#" class="bds_mshare mshare">一键分享</a></li>
+                        <li><a href="#" class="bds_qzone qqkj">QQ空间</a></li>
+                        <li><a href="#" class="bds_tsina xlwb">新浪微博</a></li>
+                        <li><a href="#" class="bds_bdysc bdysc">百度云收藏</a></li>
+                        <li><a href="#" class="bds_renren rrw">人人网</a></li>
+                        <li><a href="#" class="bds_tqq txwb">腾讯微博</a></li>
+                        <li><a href="#" class="bds_bdxc bdxc">百度相册</a></li>
+                        <li><a href="#" class="bds_kaixin001 kxw">开心网</a></li>
+                        <li><a href="#" class="bds_tqf txpy">腾讯朋友</a></li>
+                        <li><a href="#" class="bds_tieba bdtb">百度贴吧</a></li>
+                        <li><a href="#" class="bds_douban db">豆瓣网</a></li>
+                        <li><a href="#" class="bds_tsohu shwb">搜狐微博</a></li>
+                        <li><a href="#" class="bds_bdhome bdhome">百度新首页</a></li>
+                        <li><a href="#" class="bds_sqq sqq">QQ好友</a></li>
+                        <li><a href="#" class="bds_thx thx">和讯微博</a></li>
+                        <li><a href="#" class="bds_more">更多...</a></li>
+                    </ul>
+                    <p><a href="#" class="goWebsite">百度分享</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="bx2">
+            <div class="sas cf"> <span>分享到：</span>
+                <!-- Baidu Button BEGIN -->
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare ico">
+                    <a href="#" title="分享到QQ空间" class="bds_qzone"></a>
+                    <a href="#" title="分享到新浪微博" class="bds_tsina"></a>
+                    <a href="#" title="分享到腾讯微博" class="bds_tqq"></a>
+                    <a href="#" title="分享到人人网" class="bds_renren"></a>
+                    <a href="#" title="分享到搜狐微博" class="bds_tsohu"></a>
+                    <a href="#" title="分享到网易微博" class="bds_t163"></a>
+                    <a href="#" title="分享到腾讯朋友" class="bds_tqf"></a>
+                    <a href="#" title="分享到开心网" class="bds_kaixin001"></a>
+                    <a href="#" class="bds_msn"></a>
+                    <a href="#" title="分享到飞信" class="bds_fx"></a>
+                    <a href="#" title="分享到豆瓣网" class="bds_douban"></a>
+                    <a href="#" title="分享到百度贴吧" class="bds_tieba"></a>
+                    <a href="#" title="分享到139说客" class="bds_s139"></a>
+                    <a href="#" title="分享到搜狐白社会" class="bds_sohu"></a>
+                </div>
+                <script src="js/bds_s_v2.js" type="text/javascript" id="bdshare_js" data="type=tools"></script>
+                <script type="text/javascript">
+                var bds_config = {
+                    'snsKey': {
+                        'tsina': '3297384058',
+                        'tqq': 'ba36faf481494730bccc2c58de9f6cf9'
+                    }
+                };
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + new Date().getHours();
+                </script>
+                <!-- Baidu Button END -->
+                <a class="btn1" href="javascript:;" onclick="showBox()"></a>
+            </div>
+            <div class="sas mt10 cf pos_r"> <span>来评分：</span>
+                <div style="position: relative;" id="xx">
+                    <ul style="width: 115px;" class="studyplay_starBg">
+                        <li class="studyplay_starovering" style="width: 0%; z-index: 0; display: list-item;" id="studyplay_current"></li>
+                        <li class="studyplay_starON" style="width:11.5px;z-index:10;"></li>
+                        <li class="studyplay_starON" style="width:23px;z-index:9;"></li>
+                        <li class="studyplay_starON" style="width:34.5px;z-index:8;"></li>
+                        <li class="studyplay_starON" style="width:46px;z-index:7;"></li>
+                        <li class="studyplay_starON" style="width:57.5px;z-index:6;"></li>
+                        <li class="studyplay_starON" style="width:69px;z-index:5;"></li>
+                        <li class="studyplay_starON" style="width:80.5px;z-index:4;"></li>
+                        <li class="studyplay_starON" style="width:92px;z-index:3;"></li>
+                        <li class="studyplay_starON" style="width:103.5px;z-index:2;"></li>
+                        <li class="studyplay_starON" style="width:115px;z-index:1;"></li>
+                    </ul>
+                </div>
+                <i class="ft1" id="score"><strong id="avgScore">0.0</strong><em>分</em></i>
+                <input value="0.0" id="hideVal" type="hidden">
+                <i class="ft2" id="totalNum">( 0人 )</i> <i class="ft3">不容错过，强烈推荐！</i>
+            </div>
+        </div>
+        <div id="dialogBox">
+            <h3 id="dialogClose"><img title="关闭" src="images/dialogBoxClose.gif" id="dialogBoxClose" align="absmiddle" border="0"></h3>
+            <h3 class="sotit">分享到站外好友</h3>
+            <div class="so1">视频地址：
+                <input value="http://v.koolearn.com/ielts/20140108/787183.html" class="w1" name="input" id="vedioURL" type="text">
+                <input class="btn4" name="input2" value="复制" id="copy1" type="button">
+                <span>复制成功</span> </div>
+            <h3 class="sotit">把视频贴到Bolg或BBS</h3>
+            <div class="so1">html代码：
+                <input value="&lt;div class=&quot;player&quot;&gt;          &lt;div id=&quot;flashobj&quot;&gt;         &lt;/div&gt;        &lt;/div&gt;" class="w1" name="input2" id="vedioCode" type="text">
+                <input class="btn4" name="input2" value="复制" id="copy2" type="button">
+                <span>复制成功</span> </div>
+        </div>
+        <script type="text/javascript">
+        var flag = 1;
+
+        function show(count2, obj) {
+            switch (count2) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    {
+                        obj.html("深感失望，再接再厉！")
+                    }
+                    break;
+                case 5:
+                case 6:
+                    {
+                        obj.html(" 内容不错，小有收获！")
+                    }
+                    break;
+                case 7:
+                case 8:
+                    {
+                        obj.html(" 制作精良，值得一看！")
+                    }
+                    break;
+                case 9:
+                case 10:
+                    {
+                        obj.html("不容错过，强烈推荐！")
+                    }
+                    break;
+            }
+        }
+
+        function copy_code(obj) {
+
+            obj.show();
+
+        }
+
+        function showBox() {
+            var obj = $("#dialogBox");
+            if (obj.is("visible")) {
+                obj.hide();
+                $(".so1 span").hide();
+            } else {
+                obj.show();
+                var clip = new ZeroClipboard.Client(); // 新建一个对象
+                clip.setHandCursor(true); // 设置鼠标为手型
+                clip.setText(window.location.href);
+                clip.glue("copy1");
+                clip.addEventListener("complete", function() {
+                    $(".so1 span").eq(0).show();
+                    setTimeout(function() {
+                        $(".so1 span").eq(0).hide();
+                    }, 1000)
+                });
+                var clip2 = new ZeroClipboard.Client(); // 新建一个对象
+                clip2.setHandCursor(true); // 设置鼠标为手型
+                clip2.setText($.trim($(".vodl").html()));
+                clip2.glue("copy2");
+                clip2.addEventListener("complete", function() {
+                    $(".so1 span").eq(1).show();
+                    setTimeout(function() {
+                        $(".so1 span").eq(1).hide();
+
+
+                    }, 1500)
+                });
+                $("#vedioURL").select();
+                $("#vedioCode").select();
+
+            }
+        }
+
+
+        $.fn.studyplay_star = function(options, callback) {
+            var settings = {
+                MaxStar: 20,
+                StarWidth: 23,
+                CurrentStar: 5,
+                Enabled: true,
+                Half: 0
+            };
+            if (options) {
+                jQuery.extend(settings, options);
+            };
+            var container = jQuery(this);
+            container.css({
+                "position": "relative"
+            })
+            .html('<ul class="studyplay_starBg"></ul>')
+            .find('.studyplay_starBg').width(settings.MaxStar * settings.StarWidth)
+            .html('<li class="studyplay_starovering" style="width:' + settings.CurrentStar * settings.StarWidth + 'px;z-index:0;" id="studyplay_current"></li>');
+            if (settings.Enabled)
+            {
+                var ListArray = "";
+                if (settings.Half == 0)
+                {
+                    for (k = 1; k < settings.MaxStar + 1; k++)
+                    {
+                        ListArray += '<li class="studyplay_starON" style="width:' + settings.StarWidth * k + 'px;z-index:' + (settings.MaxStar - k + 1) + ';"></li>';
+                    }
+                }
+                if (settings.Half == 1)
+                {
+                    for (k = 1; k < settings.MaxStar * 2 + 1; k++)
+                    {
+                        var wid = settings.StarWidth * k / 2;
+                        ListArray += '<li class="studyplay_starON" style="width:' + wid + 'px;z-index:' + (settings.MaxStar * 2 - k + 1) + ';"></li>';
+                    }
+                }
+                container.find('.studyplay_starBg').append(ListArray)
+                container.find('.studyplay_starON').hover(function() {
+                        $(this).removeClass('studyplay_starON').addClass("studyplay_starovering");
+                        $("#studyplay_current").hide();
+                        var count2 = (settings.MaxStar * 2 - $(this).css("z-index") + 1);
+                        var obj = $("i.ft3");
+                        show(count2, obj);
+                        $("#avgScore").html(count2);
+                    },
+                    function() {
+                        $(this).removeClass('studyplay_starovering').addClass("studyplay_starON");
+                        $("#studyplay_current").show();
+                        $("#avgScore").html(parseFloat($("#hideVal").val()).toFixed(1));
+                        $("#studyplay_current").width(parseFloat($("#hideVal").val()).toFixed(1) * 10 + "%").show();
+                    })
+                .click(function() {
+                    if (flag == 0) {
+                        return;
+                    }
+                    var studyplay_count = settings.MaxStar - $(this).css("z-index") + 1;
+                    var count2 = (settings.MaxStar * 2 - $(this).css("z-index") + 1);
+                    if (settings.Half == 0)
+                        $("#studyplay_current").width(studyplay_count * settings.StarWidth)
+                    if (settings.Half == 1)
+                        $("#studyplay_current").width(parseInt($('.studyplay_starovering').eq(1).width())
+                        )
+                    $("#studyplay_current").show();
+                    $(".studyplay_starBg").hide();
+                    var url = "xxx.com";
+                    var b = false;
+                    $.ajax({
+                        type: "get",
+                        url: '/infoServlet/787183/' + count2 + '?_method=score',
+                        async: false,
+                        success: function(data) {
+                            if ($.trim(data) != '') {
+                                var arr = data.split(":");
+                                var obj = $("i.ft3");
+                                show(parseInt(arr[1]), obj);
+                                document.getElementById('avgScore').innerHTML = parseFloat(arr[1]).toFixed(1);
+                                document.getElementById('totalNum').innerHTML = '( ' + arr[0] + '人 )';
+                                setCookie("avgScore_787183", "1");
+                                $('#studyplay_current').width(parseInt(arr[1]) * settings.StarWidth);
+                            }
+                        }
+                    });
+                    if ($("#cache").length == 0) {
+                        $("<div style='width:105px;border:1px solid #ccc;padding:3px;' id='cache'>您的打分已提交。</div>").appendTo($('#xx'));
+                    }
+                })
+
+            }
+
+        }
+        </script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#xx").studyplay_star({
+                MaxStar: 5,
+                CurrentStar: parseInt(parseInt($("#hideVal").val()) / 2),
+                Enabled: true,
+                Half: 1
+            }, function(value) {
+                //要处理的结果。
+                $("#score strong").html(value);
+            });
+            $("#vedioURL").val(window.location.href);
+            $("#vedioCode").val($.trim($(".vodl").html()));
+            $("#dialogBoxClose").click(function() {
+                $(".so1 span").hide();
+                $("#dialogBox").hide();
+                $("#studyplay_current").width(parseFloat($("#hideVal").val()).toFixed(1) * 10 + "%").show();
+            })
+            $(".btn4").click(function() {
+                var ipt = $(this).siblings(".w1").val();
+                var span = $(this).siblings("span")
+
+            })
+        });
+
+        var cookie = getcookie('avgScore_787183');
+
+        if (cookie == 'yes') {
+            setTimeout(timeoutFn, 100);
+        }
+
+        function timeoutFn() {
+            $("#studyplay_current").show();
+            $(".studyplay_starBg").hide();
+            document.getElementById('xx').innerHTML = "<div style='width:105px;border:1px solid #ccc;padding:3px;' id='cache'>您的打分已提交。</div>";
+        }
+        </script>
+        <!--效果html结束-->
+    </div>
     </div>
 <script src="script.js" media="screen"></script>
 </body>
