@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    min-width: 500px;
+    background: #fff;
+    font-family: "微软雅黑";
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+}
+header {
+    padding-top: 30px;
+    height: 150px;
+    background: url(img/header-back.jpg);
+}
+h1, h2 {
+    text-align: center;
+    margin-top: 0;
+    font-weight: normal;
+}
+h2 {
+    color: #f6f6f6;
+    transition: .3s;
+}
+h2:hover {
+    color: rgb(230, 42, 42);
+}
+#video-container {
+    width: 100%;
+    background: #fff;
+    padding: 50px 0;
+    box-shadow: 0 0 15px #535353;
+}
+#video-container-wrap {
+    position: relative;
+    display: flex;
+    margin: auto;
+    width: 863px;
+    flex-direction: column;
+    box-shadow: 0 0 10px #9a9a9a;
+}
+video {
+    width: 863px;
+    height: 486px;
+}
+#video-container-wrap .dan-mu {
+    position: relative;
+    margin: 0;
+    left: -500px;
+    font-family: "黑体";
+    font-weight: bolder;
+    font-size: 28px;
+    color: #fff;
+    opacity: .7;
+    text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
+    animation: move 2.5s linear;
+}
+.input-wrap {
+    display: flex;
+}
+#video-container-wrap #dan-mu-wrap {
+    position: absolute;
+    width: 863px;
+    height: 486px;
+    overflow: hidden;
+}
+#video-container-wrap #danmu-type-choose {
+    position: absolute;
+    bottom: 30px;
+    left: 5px;
+    border-radius: 10px;
+    background: #fff;
+    width: 270px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    opacity: .8;
+    box-shadow: 0 0 5px #545252;
+}
+#video-container-wrap #danmu-type-choose div {
+    margin: 0 auto;
+    width: 240px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+}
+#video-container-wrap #danmu-type-choose .chosen {
+    border: 1px solid rgb(24, 124, 205);
+    font-size: 20px;
+    color: rgb(24, 124, 205);
+}
+#video-container-wrap #danmu-type-choose div:hover {
+    background: #aaaaaa;
+}
+#video-container-wrap #danmu-type-choose .chosen:hover {
+    background: #fff;
+}
+#video-container-wrap #danmu-type {
+    width: 30px;
+    height: 25px;
+    background: #fff url(img/danmu.png) no-repeat center;
+    border: none;
+    border-right: 1px solid #e3e3e3;
+    outline: none;
+}
+#video-container-wrap #danmu-type:hover {
+    background: #e3e3e3 url(img/danmu.png) no-repeat center;
+}
+#video-container-wrap input[type="text"] {
+    flex-grow: 1;
+    height: 23px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+}
+#video-container-wrap #fire {
+    width: 60px;
+    height: 25px;
+    border: none;
+    background: rgb(0, 163, 214);
+    font-family: "微软雅黑";
+    color: #fff;
+    outline: none;
+}
+#video-container-wrap #fire:hover {
+    background: rgb(50, 181, 222);
+}
+@keyframes move {
+    0% {
+        left: 865px;
+    }
+    100% {
+        left: -500px;
+        display: none;
+    }
+}
