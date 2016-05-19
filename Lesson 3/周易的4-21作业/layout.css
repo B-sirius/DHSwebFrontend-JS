@@ -45,26 +45,28 @@ video {
     width: 863px;
     height: 486px;
 }
-#video-container-wrap .dan-mu {
+#video-container-wrap #danmu-wrap {
+    position: absolute;
+    width: 863px;
+    height: 486px;
+    overflow: hidden;
+}
+#video-container-wrap #danmu-wrap .scroll-danmu {
     position: relative;
     margin: 0;
-    left: -500px;
+    left: 864px;
+    height: 36px;
+    line-height: 36px;
     font-family: "黑体";
     font-weight: bolder;
     font-size: 28px;
     color: #fff;
     opacity: .7;
     text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
-    animation: move 2.5s linear;
+    animation: move 4s linear;
 }
 .input-wrap {
     display: flex;
-}
-#video-container-wrap #dan-mu-wrap {
-    position: absolute;
-    width: 863px;
-    height: 486px;
-    overflow: hidden;
 }
 #video-container-wrap #danmu-type-choose {
     position: absolute;
@@ -132,10 +134,9 @@ video {
 }
 @keyframes move {
     0% {
-        left: 865px;
+        transform: translate3d(1px, 0, 0);
     }
     100% {
-        left: -500px;
-        display: none;
+        transform: translate3d(-1500px, 0, 0);
     }
 }

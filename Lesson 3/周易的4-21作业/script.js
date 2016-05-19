@@ -1,19 +1,27 @@
 "use strict";
 
-var danmuChooseWrap = document.getElementById("danmu-type-choose");
+var danmu_choose_wrap = document.getElementById("danmu-type-choose");
+var danmu_wrap = document.getElementById("danmu-wrap")
+
+//定义弹幕类
 var danmu = {
-    type: "scroll",
+    type: function() {
+        scroll.show();
+    },
     content: "",
 };
 
+//够直白了....
 var getText = function() {
     var input_text = document.getElementById("input-text");
     var text = input_text.value;
     if (text.length > 15) {
         alert("抱歉我记不住15个以上的字请重新输入_(:3 」∠ )_");
         return "";
-    } else
+    } else {
+        input_text.value = "";
         return text;
+    }
 };
 
 //用于值使元素只被创建一次
@@ -42,7 +50,7 @@ var insertAfter = function(newElement, targetElement) {
     }
 };
 
-//安全删除class属性
+// 安全删除class属性
 var removeClass = function(element, className) {
     if (!element) return;
     var elementClassName = element.className;
@@ -56,41 +64,65 @@ var removeClass = function(element, className) {
     }
 };
 
-//标记当前选中类型
+// 标记当前选中类型
 var scrollMark = function() {
-    danmu.type = "scroll";
+    danmu.type = function() {
+        scroll.show();
+    };
 };
 var topMark = function() {
-    danmu.type = "top_fixed";
+    danmu.type = function() {
+        top_fixed.show();
+    };
 };
 var bottomMark = function() {
-    danmu.type = "bottom_fixed";
+    danmu.type = function() {
+        bottom_fixed.show();
+    };
 };
 
-var scroll = {
-    show: function() {
-        var scroll_danmu = document.createElement("p");
-        scroll.innerHTML = danmu.content;
-        scroll.className = "dan-mu";
-        var y_position = Math.random() * 450;
-    }
+//销毁弹幕功能
+var removeDanmu = function(element) {
+    danmu_wrap.removeChild(element);
+}
+var deleteScrollDanmu = function(element) {
+    setTimeout(function() {
+        removeDanmu(element)
+    }, 20000); //注意setTimeout的写法，需执行函数外面要有function包裹
 }
 
+// 弹幕功能具体实现
+var scroll = {
+    show: function() {
+        var scroll_danmu = document.createElement("div");
+        scroll_danmu.innerHTML = danmu.content;
+        scroll_danmu.className = "scroll-danmu";
+        var y_position = Math.random() * 350;
+        scroll_danmu.style.top = y_position + "px";
+        danmu_wrap.appendChild(scroll_danmu);
+        deleteScrollDanmu(scroll_danmu);
+    }
+}
+var getHeight() = function() {
+
+}
 var top_fixed = {
     show: function() {
-        var top_fixed = document.createElement("p");
+        var top_fixed = document.createElement("div");
+        top_fixed.className = "top-danmu";
+        var y_position = getHeight();
         top_fixed.innerHTML = danmu.content;
     }
 }
-
 var bottom_fixed = {
     show: function() {
-        var bottom_fixed = document.createElement("p");
+        var bottom_fixed = document.createElement("div");
         bottom_fixed.innerHTML = danmu.content;
     }
 }
 
-var defaultSettingButton = function(element){
+// 弹幕种类默认值
+var defaultSettingButton = function(element) {
     element.className += "chosen";
 }
 
@@ -118,6 +150,7 @@ var setButton = function() {
         }
     }
 };
+
 // 创建只能被创建一次的选择框
 var createSingleSelectionPanel = getSingle(function() {
     var singleSelectionPanel = createSelectionPanel();
@@ -136,7 +169,7 @@ selectButton.onclick = function() {
 }
 
 var fireButton = document.getElementById("fire");
-fireButton.onclick = function(type) {
+fireButton.onclick = function() {
     danmu.content = getText();
-    type.show();
+    danmu.type();
 }
