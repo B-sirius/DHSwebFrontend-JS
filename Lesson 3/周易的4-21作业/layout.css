@@ -68,6 +68,20 @@ video {
 .input-wrap {
     display: flex;
 }
+#video-container-wrap #danmu-wrap .fixed-danmu{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    height: 36px;
+    line-height: 36px;
+    font-family: "黑体";
+    font-weight: bolder;
+    font-size: 28px;
+    color: #fff;
+    text-shadow: #000 1px 0 0, #000 0 1px 0, #000 -1px 0 0, #000 0 -1px 0;
+    opacity: .7;
+}
 #video-container-wrap #danmu-type-choose {
     position: absolute;
     bottom: 30px;

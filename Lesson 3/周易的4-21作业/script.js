@@ -2,7 +2,8 @@
 
 var danmu_choose_wrap = document.getElementById("danmu-type-choose");
 var danmu_wrap = document.getElementById("danmu-wrap")
-
+var topHighest = 0;
+var bottomHighest = 0;
 //定义弹幕类
 var danmu = {
     type: function() {
@@ -85,12 +86,31 @@ var bottomMark = function() {
 var removeDanmu = function(element) {
     danmu_wrap.removeChild(element);
 }
-var deleteScrollDanmu = function(element) {
+var deleteScrollDanmu = function(element, time) {
     setTimeout(function() {
-        removeDanmu(element)
-    }, 20000); //注意setTimeout的写法，需执行函数外面要有function包裹
+        removeDanmu(element);
+    }, time); //注意setTimeout的写法，需执行函数外面要有function包裹
+}
+var deleteFixedDanmu = function(element, time) {
+    setTimeout(function() {
+        removeDanmu(element);
+    }, time); //注意setTimeout的写法，需执行函数外面要有function包裹
 }
 
+//得到当前有几种同类型弹幕来计算高度
+var getTopHeight = function(parent) {
+    var exist_danmu_num = parent.getElementsByClassName("top-danmu").length;
+    topHighest = (exist_danmu_num === 0) ? 0 : topHighest;
+    var height = topHighest * 36;
+    return height;
+}
+
+var getBottomHeight = function(parent) {
+    var exist_danmu_num = parent.getElementsByClassName("bottom-danmu").length;
+    bottomHighest = (exist_danmu_num === 0) ? 0 : bottomHighest;
+    var height = bottomHighest * 36;
+    return height;
+}
 // 弹幕功能具体实现
 var scroll = {
     show: function() {
@@ -100,24 +120,34 @@ var scroll = {
         var y_position = Math.random() * 350;
         scroll_danmu.style.top = y_position + "px";
         danmu_wrap.appendChild(scroll_danmu);
-        deleteScrollDanmu(scroll_danmu);
+        deleteScrollDanmu(scroll_danmu, 5000);
     }
 }
-var getHeight() = function() {
 
-}
 var top_fixed = {
     show: function() {
         var top_fixed = document.createElement("div");
-        top_fixed.className = "top-danmu";
-        var y_position = getHeight();
         top_fixed.innerHTML = danmu.content;
+        top_fixed.className = "fixed-danmu";
+        top_fixed.className += " top-danmu" //只是用来标记个数
+        var y_position = getTopHeight(danmu_wrap);
+        top_fixed.style.top = y_position + "px";
+        danmu_wrap.appendChild(top_fixed);
+        ++topHighest;
+        deleteFixedDanmu(top_fixed, 3000);
     }
 }
 var bottom_fixed = {
     show: function() {
         var bottom_fixed = document.createElement("div");
         bottom_fixed.innerHTML = danmu.content;
+        bottom_fixed.className = "fixed-danmu"
+        bottom_fixed.className += " bottom-danmu"
+        var y_position = getBottomHeight(danmu_wrap);
+        bottom_fixed.style.bottom = 40 + y_position + "px";
+        danmu_wrap.appendChild(bottom_fixed);
+        ++bottomHighest;
+        deleteFixedDanmu(bottom_fixed, 3000)
     }
 }
 
